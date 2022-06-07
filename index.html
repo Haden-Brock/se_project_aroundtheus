@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="This Practicum project is an interactive webpage where users can add/ remove photos, like photos, and adjust their profiles">
+        <meta name="author" content="Haden Brock">
+        <meta name="keywords" content="HTML, CSS, Social, Practicum, Project">
+        <title>Around the US</title>
+        <link rel="stylesheet" href="./pages/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+    </head>
+    <body class="page">
+        <div class="page__content">
+            <header class="header">
+                <img
+                    src="./images/around_title_white.svg"
+                    alt="Around The U.S."
+                    class="header__logo"/>
+            </header>
+            <main class="content">
+                <section class="profile">
+                    <img 
+                        src="./images/jacques-cousteau.svg"
+                        alt="profile picture"
+                        class="profile__avatar"/>
+                    <div class="profile__info">
+                            <h2 class="profile__info-name">
+                                Jacques Cousteau
+                                <button class="profile__info-button"></button>
+                            </h2>
+                            <p class="profile__info-description">
+                            Explorer
+                        </p>
+                    </div>
+                    <button class="profile__add"></button>
+                </section>
+                <section class="elements">
+                    <ul class="elements__grid">
+                        <li class="card">
+                            <img
+                                src="./images/yosemite-valley.jpg"
+                                alt="Yosemite Valley"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Yosemite Valley</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <img
+                                src="./images/lake-louise.png"
+                                alt="Lake Louise"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Lake Louise</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <img
+                                src="./images/bald-mountains.png"
+                                alt="Bald Mountains"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Bald Mountains</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <img
+                                src="./images/latemar.png"
+                                alt="Latemar"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Latemar</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <img
+                                src="./images/vanoise-national-park.png"
+                                alt="Vanoise National Park"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Vanoise National Park</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <img
+                                src="./images/lago-di-braies.png"
+                                alt="Lago di Braies"
+                                class="card__image"/>
+                            <div class="card__bottom">
+                                <p class="card__bottom-text">Lago di Braies</p>
+                                <button class="card__bottom-button">
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+            <footer class="footer">
+                <p class="footer__text">© 2022 Around The U.S.</p>
+            </footer>
+        </div>
+    </body>
+</html>
