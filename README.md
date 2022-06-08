@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-This is the third project of the Web Development program at Practicum. It was created using HTML and CSS, based on the design brief. 
+This is the third project of the Web Development program at Practicum. It was created using HTML and CSS, based on the design brief. This project seeks to build an interactive and responsive custom webpage.
 
 ## Project features
 
@@ -15,3 +15,7 @@ This is the third project of the Web Development program at Practicum. It was cr
 ## Plan on improving the project
 
 - Make the page functional using JS
+
+## Link to GitHub Pages
+
+https://haden-brock.github.io/se_project_aroundtheus/
