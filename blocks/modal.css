@@ -8,25 +8,24 @@
     width: 100%;
 }
 
-.modal__opened {
-    display: block;
+.modal_opened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal__container {
     box-sizing: border-box;
     width: 430px;
-    max-height: 330px;
     padding: 34px 36px 36px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
     border-radius: 10px;
+    position: relative;
 }
 
 .modal__container-exit {
@@ -45,6 +44,7 @@
 
 .modal__container-exit:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .modal__container-title {

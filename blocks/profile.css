@@ -20,13 +20,14 @@
 
 .profile__info {
     max-width: 415px;
+    min-width: 0;
     display: grid;
     grid-template-columns: auto 24px;
-    grid-template-rows: 39px 22px;
+    grid-template-rows: auto 22px;
     grid-template-areas:
         "name edit"
         "description edit";
-    row-gap: 16px;
+    row-gap: 7px;
     column-gap: 18px;
 }
 
@@ -34,8 +35,9 @@
     max-width: 373px;
     font-weight: 500;
     font-size: 42px;
-    line-height: 1.143;
+    line-height: 1.14;
     margin: 0;
+    overflow:hidden;
     text-overflow: ellipsis;
     white-space:nowrap;
     grid-area: name;
@@ -47,6 +49,7 @@
     font-weight: 400;
     font-size: 18px;
     margin: 0;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     grid-area: description;
@@ -61,7 +64,7 @@
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 15px;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.0);
     border: solid 1px #fff;
     box-sizing: border-box;
     vertical-align: middle;
@@ -70,6 +73,7 @@
 
 .profile__edit:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .profile__add {
@@ -87,6 +91,7 @@
 
 .profile__add:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
@@ -124,12 +129,12 @@
         width: 100%;
         margin: 30px 0 36px;
         grid-template-columns: auto 18px;
-        grid-template-rows: 22px 15px;
+        grid-template-rows: auto 15px;
         grid-template-areas:
             "name edit"
             "description description";
         column-gap: 10px;
-        row-gap: 14px;
+        row-gap: 10px;
     }
 
     .profile__info-name {
@@ -145,6 +150,7 @@
         line-height: 1.21;
         text-align: center;
         margin: auto;
+        max-width: 282px;
     }
 
     .profile__edit {

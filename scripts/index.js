@@ -1,18 +1,20 @@
 const editButton = document.querySelector(".profile__edit");
 const modalWindow = document.querySelector(".modal");
 const exitButton = document.querySelector(".modal__container-exit");
-const saveButton = document.querySelector(".form__save");
 const formElement = document.querySelector(".form");
 let profileName = document.querySelector(".profile__info-name");
 let profileDescription = document.querySelector(".profile__info-description");
 let nameInput = document.querySelector("#name");
 let descriptionInput = document.querySelector("#description");
-
-nameInput.placeholder = profileName.textContent;
-descriptionInput.placeholder = profileDescription.textContent;
+let cardTemplate = document.querySelector("#card").content;
+let elementsGrid = document.querySelector(".elements__grid");
 
 function handleModalToggle() {
-    modalWindow.classList.toggle("modal__opened");
+    modalWindow.classList.toggle("modal_opened");
+    if (modalWindow.classList.contains("modal_opened")) {
+        nameInput.value = profileName.textContent;
+        descriptionInput.value = profileDescription.textContent;
+    }
 }
 
 function handleFormSubmit(evt) {
@@ -23,10 +25,6 @@ function handleFormSubmit(evt) {
     profileDescription.textContent = userDescription;
     handleModalToggle();
 }
-
-editButton.addEventListener("click", handleModalToggle);
-exitButton.addEventListener("click", handleModalToggle);
-formElement.addEventListener("submit", handleFormSubmit);
 
 let yosemite = {
     name: "Yosemite Valley",
@@ -60,13 +58,11 @@ let lago = {
 
 let initialCardsList = [yosemite, louise, baldMountains, latemar, vanoise, lago];
 
-let cardTemplate = document.querySelector("#card").content;
-let elementsGrid = document.querySelector(".elements__grid");
-
 function getCardElement(data) {
     let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-    cardElement.querySelector(".card__image").src = data.link;
-    cardElement.querySelector(".card__image").alt = data.name;
+    let cardImage = cardElement.querySelector(".card__image");
+    cardImage.src = data.link;
+    cardImage.alt = data.name;
     cardElement.querySelector(".card__bottom-text").textContent = data.name;
     elementsGrid.append(cardElement);
 }
@@ -75,4 +71,6 @@ for(let i = 0; i < 6; i++) {
     getCardElement(initialCardsList[i]);
 }
 
-
+editButton.addEventListener("click", handleModalToggle);
+exitButton.addEventListener("click", handleModalToggle);
+formElement.addEventListener("submit", handleFormSubmit);

@@ -13,18 +13,6 @@
     width: 100%;
 }
 
-.form__field {
-    margin-bottom: 30px;
-}
-
-.form__field:last-of-type {
-    margin-bottom: 0;
-}
-
-.form__label {
-    display: none;
-}
-
 .form__input {
     font-weight: 400;
     height: 27px;
@@ -34,6 +22,7 @@
     line-height: 17px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
 }
 
 .form__save {
@@ -47,11 +36,12 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .form__save:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
