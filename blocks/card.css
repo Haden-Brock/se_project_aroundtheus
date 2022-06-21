@@ -8,7 +8,8 @@
 
 .card__image {
     object-fit: cover;
-    min-height: 282px;
+    width: 282px;
+    height: 282px;
 }
 
 .card__bottom {

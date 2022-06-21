@@ -18,90 +18,52 @@
                     class="header__logo"/>
             </header>
             <main class="content">
+                <section class="modal">
+                    <div class="modal__container">
+                        <button class="modal__container-exit" type="button"></button>
+                        <h2 class="modal__container-title">Edit profile</h2>
+                        <form class="modal__form form">
+                            <fieldset class="form__fieldset">
+                                <div class="form__field">
+                                    <label class="form__label" for="name">Name</label>
+                                    <input class="form__input" id="name" type="text" required placeholder="Name">
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="description">Description</label>
+                                    <input class="form__input" id="description" type="text" required placeholder="Description">
+                                </div>
+                            </fieldset>
+                            <button class="form__save" type="submit">Save</button>
+                        </form>
+                    </div>
+                </section>
                 <section class="profile">
                     <img 
                         src="./images/jacques-cousteau.svg"
                         alt="profile picture"
                         class="profile__avatar"/>
                     <div class="profile__info">
-                            <h1 class="profile__info-name">
-                                Jacques Cousteau
-                                <button class="profile__info-button" type="button"></button>
-                            </h1>
-                            <p class="profile__info-description">
-                            Explorer
-                        </p>
+                            <h1 class="profile__info-name">Jacques Cousteau</h1>
+                            <button class="profile__edit" type="button"></button>
+                            <p class="profile__info-description">Explorer</p>
                     </div>
                     <button class="profile__add" type="button"></button>
                 </section>
                 <section class="elements">
                     <ul class="elements__grid">
-                        <li class="card">
-                            <img
-                                src="./images/yosemite-valley.jpg"
-                                alt="Yosemite Valley"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Yosemite Valley</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img
-                                src="./images/lake-louise.png"
-                                alt="Lake Louise"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Lake Louise</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img
-                                src="./images/bald-mountains.png"
-                                alt="Bald Mountains"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Bald Mountains</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img
-                                src="./images/latemar.png"
-                                alt="Latemar"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Latemar</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img
-                                src="./images/vanoise-national-park.png"
-                                alt="Vanoise National Park"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Vanoise National Park</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
-                        <li class="card">
-                            <img
-                                src="./images/lago-di-braies.png"
-                                alt="Lago di Braies"
-                                class="card__image"/>
-                            <div class="card__bottom">
-                                <h2 class="card__bottom-text">Lago di Braies</h2>
-                                <button class="card__bottom-button" type="button">
-                                </button>
-                            </div>
-                        </li>
+                        <template id="card">
+                            <li class="card">
+                                <img
+                                    src=""
+                                    alt=""
+                                    class="card__image"/>
+                                <div class="card__bottom">
+                                    <h2 class="card__bottom-text"></h2>
+                                    <button class="card__bottom-button" type="button">
+                                    </button>
+                                </div>
+                            </li>
+                        </template>
                     </ul>
                 </section>
             </main>
@@ -109,5 +71,6 @@
                 <p class="footer__text">© 2022 Around The U.S.</p>
             </footer>
         </div>
+        <script src="./scripts/index.js"></script>
     </body>
 </html>
