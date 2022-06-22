@@ -6,12 +6,12 @@
     left: 0;
     height: 100vh;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal_opened {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .modal__container {
