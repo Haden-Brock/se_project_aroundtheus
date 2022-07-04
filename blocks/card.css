@@ -4,6 +4,25 @@
     color: #000;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+}
+
+.card__delete {
+    border: none;
+    background-image: url(../images/Trash.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.0);
+    padding: none;
+    height: 19px;
+    width: 18px;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+}
+
+.card__delete:hover {
+    opacity: 0.6;
 }
 
 .card__image {
@@ -48,5 +67,6 @@
     cursor: pointer;
 }
 
-
-
+.card__bottom-button_clicked {
+    background-image: url('../images/like-button-clicked.svg');
+}

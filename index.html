@@ -18,17 +18,40 @@
                     class="header__logo"/>
             </header>
             <main class="content">
-                <section class="modal">
+                <section class="modal" id="edit">
                     <div class="modal__container">
-                        <button class="modal__container-exit" type="button"></button>
+                        <button class="modal__container-exit" type="button" id="editExit"></button>
                         <h2 class="modal__container-title">Edit profile</h2>
-                        <form class="modal__form form" name="edit">
+                        <form class="modal__form form" name="edit" id="editSubmit">
                             <fieldset class="form__fieldset">
                                 <input class="form__input" id="name" type="text" required placeholder="Name">
                                 <input class="form__input" id="description" type="text" required placeholder="Description">
                             </fieldset>
                             <button class="form__save" type="submit">Save</button>
                         </form>
+                    </div>
+                </section>
+                <section class="modal" id="addCard">
+                    <div class="modal__container">
+                        <button class="modal__container-exit" type="button" id="addExit"></button>
+                        <h2 class="modal__container-title">New place</h2>
+                        <form class="modal__form form" name="place" id="addSubmit">
+                            <fieldset class="form__fieldset">
+                                <input class="form__input" id="title" type="text" required placeholder="Title">
+                                <input class="form__input" id="link" type="text" required placeholder="Image link">
+                            </fieldset>
+                            <button class="form__save" type="submit">Create</button>
+                        </form>
+                    </div>
+                </section>
+                <section class="modal" id="pictureModal">
+                    <div class="modal__picture">
+                        <button class="modal__picture-exit" type="button" id="pictureExit"></button>
+                        <img 
+                            src=""
+                            alt=""
+                            class="modal__picture-image"/>
+                        <h2 class="modal__picture-text"></h2>
                     </div>
                 </section>
                 <section class="profile">
@@ -38,23 +61,23 @@
                         class="profile__avatar"/>
                     <div class="profile__info">
                             <h1 class="profile__info-name">Jacques Cousteau</h1>
-                            <button class="profile__edit" type="button"></button>
+                            <button class="profile__edit" type="button" id="editOpen"></button>
                             <p class="profile__info-description">Explorer</p>
                     </div>
-                    <button class="profile__add" type="button"></button>
+                    <button class="profile__add" type="button" id="addOpen"></button>
                 </section>
                 <section class="elements">
                     <ul class="elements__grid">
                         <template id="card">
                             <li class="card">
+                                <button class="card__delete" type="button"></button>
                                 <img
                                     src=""
                                     alt=""
                                     class="card__image"/>
                                 <div class="card__bottom">
                                     <h2 class="card__bottom-text"></h2>
-                                    <button class="card__bottom-button" type="button">
-                                    </button>
+                                    <button class="card__bottom-button" type="button"></button>
                                 </div>
                             </li>
                         </template>

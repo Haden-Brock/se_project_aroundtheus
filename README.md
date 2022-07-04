@@ -11,11 +11,12 @@ This is the third project of the Web Development program at Practicum. It was cr
 - Flat BEM
 - Form based on Figma design
 - Responsive layout supporting screen sizes from 320px minimum to 1280px maximum
-- Interactive features such as editing profile and dynamic creation of images based on user imput using JavaScript
+- Interactive features such as editing profile and dynamic creation of images based on user imput using JavaScript.
+- Ability to like, delete, and view modal windows of user added images. 
 
 ## Plan on improving the project
 
-- Program the function of the "add" button to allow users to add their own photos with captions. 
+- Program back end functionality to have persistent image cards/ profile info on page after page refresh.  
 
 ## Link to GitHub Pages
 
