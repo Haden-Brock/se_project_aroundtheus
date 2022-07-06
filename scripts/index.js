@@ -17,7 +17,7 @@ const titleInput = document.querySelector("#title");
 const linkInput = document.querySelector("#link");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
 
-let cardsList = [
+const cardsList = [
     {
         name: "Yosemite Valley",
         link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
@@ -44,24 +44,24 @@ let cardsList = [
     }
 ];
 
-function handleModalClose (window) {
+function closeModal (window) {
     window.classList.remove("modal_opened");
 }
 
-function handleModalOpen (window) {
+function openModal (window) {
     window.classList.add("modal_opened");
 }
 
 function handleModalEdit () {
     nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
-    handleModalOpen(editWindow);
+    openModal(editWindow);
 }
 
 function handleModalAdd () {
     titleInput.value = "";
     linkInput.value = "";
-    handleModalOpen(addCardWindow);
+    openModal(addCardWindow);
 }
 
 function handleModalPicture (evt) {
@@ -71,7 +71,7 @@ function handleModalPicture (evt) {
     pictureWindowImage.src = pictureSource;
     pictureWindowImage.alt = pictureText;
     pictureWindowText.textContent = pictureText;
-    handleModalOpen(pictureWindow);
+    openModal(pictureWindow);
 }
 
 function handleEditFormSubmit (evt) {
@@ -80,7 +80,7 @@ function handleEditFormSubmit (evt) {
     userDescription = descriptionInput.value;
     profileName.textContent = userName;
     profileDescription.textContent = userDescription;
-    handleModalClose(editWindow);
+    closeModal(editWindow);
 }
 
 function handleAddFormSubmit (evt) {
@@ -90,7 +90,7 @@ function handleAddFormSubmit (evt) {
         link: linkInput.value
     };
     prependCard(card);
-    handleModalClose(addCardWindow);
+    closeModal(addCardWindow);
 }
 
 function handleLikeButton (evt) {
@@ -103,8 +103,8 @@ function handleDeleteButton (evt) {
 }
 
 function createCard(data) {
-    let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-    let cardImage = cardElement.querySelector(".card__image");
+    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+    const cardImage = cardElement.querySelector(".card__image");
     cardImage.src = data.link;
     cardImage.alt = data.name;
     cardElement.querySelector(".card__bottom-text").textContent = data.name;
@@ -117,7 +117,7 @@ function createCard(data) {
 }
 
 function prependCard(data) {
-    let cardElement = createCard(data);
+    const cardElement = createCard(data);
     elementsGrid.prepend(cardElement);
 }
 
@@ -125,7 +125,7 @@ cardsList.forEach(prependCard);
 
 exitButtons.forEach((button) => {
     const window = button.closest(".modal");
-    button.addEventListener("click", () => handleModalClose(window));
+    button.addEventListener("click", () => closeModal(window));
 });
 
 editButton.addEventListener("click", handleModalEdit);
