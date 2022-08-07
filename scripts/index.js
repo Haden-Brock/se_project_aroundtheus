@@ -9,12 +9,12 @@ const pictureWindowImage = pictureWindow.querySelector(".modal__picture-image");
 const pictureWindowText = pictureWindow.querySelector(".modal__picture-text");
 const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
-const nameInput = document.querySelector("#name__input");
-const descriptionInput = document.querySelector("#description__input");
+const nameInput = document.querySelector("#name-input");
+const descriptionInput = document.querySelector("#description-input");
 const cardTemplate = document.querySelector("#card").content;
 const elementsGrid = document.querySelector(".elements__grid");
-const titleInput = document.querySelector("#title__input");
-const linkInput = document.querySelector("#link__input");
+const titleInput = document.querySelector("#title-input");
+const linkInput = document.querySelector("#link-input");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
 
 const cardsList = [
