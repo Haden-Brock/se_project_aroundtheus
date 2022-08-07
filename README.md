@@ -13,6 +13,8 @@ This is the third project of the Web Development program at Practicum. It was cr
 - Responsive layout supporting screen sizes from 320px minimum to 1280px maximum
 - Interactive features such as editing profile and dynamic creation of images based on user imput using JavaScript.
 - Ability to like, delete, and view modal windows of user added images. 
+- Form validation with error descriptions
+- Ability to close any popup windows by clicking outside of them or pressing "Esc"
 
 ## Plan on improving the project
 

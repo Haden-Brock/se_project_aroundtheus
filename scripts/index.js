@@ -9,12 +9,12 @@ const pictureWindowImage = pictureWindow.querySelector(".modal__picture-image");
 const pictureWindowText = pictureWindow.querySelector(".modal__picture-text");
 const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
-const nameInput = document.querySelector("#name");
-const descriptionInput = document.querySelector("#description");
+const nameInput = document.querySelector("#name__input");
+const descriptionInput = document.querySelector("#description__input");
 const cardTemplate = document.querySelector("#card").content;
 const elementsGrid = document.querySelector(".elements__grid");
-const titleInput = document.querySelector("#title");
-const linkInput = document.querySelector("#link");
+const titleInput = document.querySelector("#title__input");
+const linkInput = document.querySelector("#link__input");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
 
 const cardsList = [
@@ -44,12 +44,16 @@ const cardsList = [
     }
 ];
 
-function closeModal (window) {
-    window.classList.remove("modal_opened");
+function closeModal (modal) {
+    modal.classList.remove("modal_opened");
+    modal.removeEventListener("mousedown", closeModalOnClick);
+    document.removeEventListener("keydown", closeModalOnEsc);
 }
 
-function openModal (window) {
-    window.classList.add("modal_opened");
+function openModal (modal) {
+    modal.classList.add("modal_opened");
+    modal.addEventListener("mousedown", closeModalOnClick);
+    document.addEventListener("keydown", closeModalOnEsc);
 }
 
 function handleModalEdit () {
@@ -121,6 +125,22 @@ function prependCard(data) {
     elementsGrid.prepend(cardElement);
 }
 
+function closeModalOnClick (evt) {
+    if(evt.target === evt.currentTarget) {
+        closeModal(evt.target);
+    }
+}
+
+function closeModalOnEsc (evt) {
+    console.log(evt.key);
+    const modal = document.querySelector(".modal_opened");
+    if(evt.key === "Escape") {
+        closeModal(modal);
+    }
+}
+
+
+
 cardsList.forEach(prependCard);
 
 exitButtons.forEach((button) => {
@@ -132,3 +152,4 @@ editButton.addEventListener("click", handleModalEdit);
 addButton.addEventListener("click", handleModalAdd);
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 addFormElement.addEventListener("submit", handleAddFormSubmit);
+
