@@ -63,8 +63,6 @@ function handleModalEdit () {
 }
 
 function handleModalAdd () {
-    titleInput.value = "";
-    linkInput.value = "";
     openModal(addCardWindow);
 }
 
@@ -80,8 +78,8 @@ function handleModalPicture (evt) {
 
 function handleEditFormSubmit (evt) {
     evt.preventDefault();
-    userName = nameInput.value;
-    userDescription = descriptionInput.value;
+    const userName = nameInput.value;
+    const userDescription = descriptionInput.value;
     profileName.textContent = userName;
     profileDescription.textContent = userDescription;
     closeModal(editWindow);
@@ -95,6 +93,7 @@ function handleAddFormSubmit (evt) {
     };
     prependCard(card);
     closeModal(addCardWindow);
+    evt.target.reset();
 }
 
 function handleLikeButton (evt) {
@@ -133,8 +132,8 @@ function closeModalOnClick (evt) {
 
 function closeModalOnEsc (evt) {
     console.log(evt.key);
-    const modal = document.querySelector(".modal_opened");
     if(evt.key === "Escape") {
+        const modal = document.querySelector(".modal_opened");
         closeModal(modal);
     }
 }
