@@ -16,6 +16,7 @@ const elementsGrid = document.querySelector(".elements__grid");
 const titleInput = document.querySelector("#title-input");
 const linkInput = document.querySelector("#link-input");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
+const saveButtonAdd = addFormElement.querySelector("button");
 
 const cardsList = [
     {
@@ -94,6 +95,8 @@ function handleAddFormSubmit (evt) {
     prependCard(card);
     closeModal(addCardWindow);
     evt.target.reset();
+    saveButtonAdd.disabled = true;
+    saveButtonAdd.classList.add("form__save_disabled");
 }
 
 function handleLikeButton (evt) {
