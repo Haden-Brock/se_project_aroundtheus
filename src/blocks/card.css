@@ -32,7 +32,7 @@
     height: 282px;
 }
 
-.card__image {
+.card__image:hover {
     cursor: pointer;
 }
 
