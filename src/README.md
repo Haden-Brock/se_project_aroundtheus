@@ -3,7 +3,7 @@
 This is the third project of the Web Development program at Practicum. It was created using HTML, CSS, and Javascript based on the design brief. This project seeks to build an interactive and responsive custom webpage.
 
 ## Project features
-
+** Updated to utilize Webpack **
 - Semantic HTML5
 - Flexbox
 - Gridbox
@@ -15,7 +15,8 @@ This is the third project of the Web Development program at Practicum. It was cr
 - Ability to like, delete, and view modal windows of user added images 
 - Form validation with error descriptions
 - Ability to close any popup windows by clicking outside of them or pressing "Esc"
-- Classes for card elements as well as form validation
+- Classes and implementation of inheritance, polymorphism, and loose coupling of classes
+- Production and Dev builds. 
 
 ## Plan on improving the project
 

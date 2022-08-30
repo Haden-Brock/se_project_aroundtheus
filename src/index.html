@@ -13,7 +13,7 @@
         <div class="page__content">
             <header class="header">
                 <img
-                    src="./images/around_title_white.svg"
+                    src="<%=require('./images/around_title_white.svg')%>"
                     alt="Around The U.S."
                     class="header__logo"/>
             </header>
@@ -60,7 +60,7 @@
                 </section>
                 <section class="profile">
                     <img 
-                        src="./images/jacques-cousteau.svg"
+                        src="<%=require('./images/jacques-cousteau.svg')%>"
                         alt="profile picture"
                         class="profile__avatar"/>
                     <div class="profile__info">
@@ -92,9 +92,6 @@
                 <p class="footer__text">© 2022 Around The U.S.</p>
             </footer>
         </div>
-        <script type="module" src="./scripts/index.js"></script>
-        <script type="module" src="./scripts/util.js"></script>
-        <script type="module" src="./scripts/Card.js"></script>
-        <script type="module" src="./scripts/FormValidator.js"></script>
+        
     </body>
 </html>
