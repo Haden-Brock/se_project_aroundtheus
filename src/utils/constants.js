@@ -16,7 +16,7 @@ const addFormElement = addCardWindow.querySelector(".form");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
 const saveButtonAdd = addFormElement.querySelector("button");
 const pictureWindow = document.querySelector("#pictureModal");
-const userData = {name: profileName, description: profileDescription};
+const userSelector = {nameSelector: ".profile__info-name", descriptionSelector: ".profile__info-description"};
 
 const settings = {
     formSelector: ".form", 
@@ -73,7 +73,7 @@ export {cardTemplate,
     exitButtons, 
     saveButtonAdd,
     pictureWindow,
-    userData,   
+    userSelector,   
     settings, 
     formList, 
     cardsList};

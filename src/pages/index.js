@@ -1,10 +1,10 @@
-import "./styles/index.css";
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "./components/UserInfo.js";
-import Section from "./components/Section.js";
+import "./index.css";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Section from "../components/Section.js";
 import {cardTemplate, 
         gridSelector, 
         nameInput, 
@@ -16,33 +16,38 @@ import {cardTemplate,
         addButton, 
         editWindow, 
         pictureWindow, 
-        userData, 
+        userSelector, 
         settings, 
         formList, 
-        cardsList} from "./utils/constants.js";
+        cardsList} from "../utils/constants.js";
 
-const cardSection = new Section({
-    data: cardsList, 
-    renderer: (cardItem) => {
-        const card = new Card (cardItem, cardTemplate, handleCardClick);
-        const cardElement = card.generateCard();
+const renderCard = (cardItem) => {        
+    const card = new Card (cardItem, cardTemplate, handleCardClick);
+    const cardElement = card.generateCard();
+        
+    cardSection.addItem(cardElement);
+}
 
-        cardSection.setItem(cardElement);
-        }
+const cardSection = new Section(
+    {
+        data: cardsList,
+        renderer: renderCard,
     },
     gridSelector
 );
+
+
 
 const addForm = new PopupWithForm(addCardWindow, handleAddFormSubmit);
 addForm.setEventListeners();
 const editForm = new PopupWithForm(editWindow, handleEditFormSubmit);
 editForm.setEventListeners();
 
-const user = new UserInfo(userData);
+const user = new UserInfo(userSelector);
+const imagePopup = new PopupWithImage(pictureWindow);
 
 function handleCardClick(card) {
-    const imagePopup = new PopupWithImage(pictureWindow, card);
-    imagePopup.openPopup();
+    imagePopup.openPopup(card);
 }
 
 function addValidation(settings, formElement) {
@@ -62,7 +67,10 @@ function handleModalAdd () {
 }
 
 function handleEditFormSubmit () {
-    user.setUserInfo();
+    const newName = nameInput.value;
+    const newDescription = descriptionInput.value;
+    const newUserInfo = {name: newName, description: newDescription};
+    user.setUserInfo(newUserInfo);
     editForm.closePopup();
 }
 
@@ -71,11 +79,8 @@ function handleAddFormSubmit (evt) {
         name: titleInput.value,
         link: linkInput.value
     };
-    const card = new Card(cardData, cardTemplate, handleCardClick);
-    const cardElement = card.generateCard();
-    cardSection.setItem(cardElement);
+    renderCard(cardData);
     addForm.closePopup();
-    evt.target.reset();
 }
 
 cardSection.renderItems();
@@ -84,9 +89,6 @@ editButton.addEventListener("click", handleModalEdit);
 addButton.addEventListener("click", handleModalAdd);
 
 formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-    });
     addValidation(settings, formElement);
 });
 

@@ -23,12 +23,17 @@
 
 .card__delete:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .card__image {
     object-fit: cover;
     width: 282px;
     height: 282px;
+}
+
+.card__image {
+    cursor: pointer;
 }
 
 .card__bottom {
