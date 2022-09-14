@@ -1,9 +1,8 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithConfirm extends Popup {
-    constructor(popupElement, handleFormSubmit) {
+    constructor(popupElement) {
         super(popupElement);
-        this._handleFormSubmit = handleFormSubmit;
         this._formElement = this._popupElement.querySelector(".form");
         this._buttonTextContainer = this._formElement.querySelector(".form__save");
         this._defaultButtonText = this._buttonTextContainer.textContent;
@@ -11,14 +10,14 @@ export default class PopupWithConfirm extends Popup {
 
     setLoadingText(isLoading) {
         if (isLoading) {
-            this._buttonTextContainer.textContent = "Saving..."; 
+            this._buttonTextContainer.textContent = "Deleting..."; 
         } else {
             this._buttonTextContainer.textContent = this._defaultButtonText;
         }
     }
 
-    openPopup(card) {
-        this._card = card;
+    openPopup(handleFormSubmit) {
+        this._handleFormSubmit = handleFormSubmit;
         super.openPopup();
     }
 
@@ -27,7 +26,7 @@ export default class PopupWithConfirm extends Popup {
 
         this._formElement.addEventListener("submit", (evt) => {
             evt.preventDefault();
-            this._handleFormSubmit(this._card);
+            this._handleFormSubmit();
         })
     }
 }

@@ -6,7 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
-import Api from "../components/Api.js";
+import Api from "../utils/Api.js";
 import {
   cardTemplate,
   gridSelector,
@@ -46,6 +46,7 @@ let cardSection;
 Promise.all([api.getUserData(), api.getInitialCards()])
   .then(([userInfoRes, cardRes]) => {
     user.setUserInfo(userInfoRes);
+    user.setUserAvatar(userInfoRes.avatar);
     currentUserId = userInfoRes._id;
 
     cardSection = new Section(
@@ -62,7 +63,28 @@ Promise.all([api.getUserData(), api.getInitialCards()])
   });
 
 const renderCard = (cardItem) => {
-  const card = new Card(cardItem, cardTemplate, handleCardClick, handleCardDelete, handleCardLike, currentUserId);
+  const card = new Card(
+    cardItem, 
+    cardTemplate, 
+    handleCardClick, 
+    () => {
+      deleteForm.openPopup(() => {
+        deleteForm.setLoadingText(true);
+        api.deleteCard(card.getId())
+          .then(() => {
+            card.deleteCard();
+            deleteForm.closePopup();
+          })
+          .catch((err) => {
+          console.log(err);
+          })
+          .finally(() => {
+            deleteForm.setLoadingText(false);
+          });
+      });
+    }, 
+    handleCardLike, 
+    currentUserId);
   const cardElement = card.generateCard();
 
   cardSection.addItem(cardElement);
@@ -100,8 +122,8 @@ function handleCardClick(card) {
   imagePopup.openPopup(card);
 }
 
-function handleCardDelete(card) {
-  deleteForm.openPopup(card);
+function handleCardDelete() {
+  deleteForm.openPopup(handleDeleteFormSubmit);
 }
 
 
@@ -133,13 +155,13 @@ function handleEditFormSubmit() {
   api.updateUserInfo(newUserInfo)
     .then(res => {
       user.setUserInfo(res);
+      editForm.closePopup();
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
       editForm.setLoadingText(false);
-      editForm.closePopup();
     });
 
   
@@ -154,13 +176,13 @@ function handleAddFormSubmit() {
   api.addNewCard(cardData)
     .then(res => {
       renderCard(res);
+      addForm.closePopup();
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
       addForm.setLoadingText(false);
-      addForm.closePopup();
     });
   
   
@@ -172,20 +194,20 @@ function handleAvatarFormSubmit() {
   avatarForm.setLoadingText(true);
   api.updateProfilePicture(avatarInfo)
     .then(res => {
-      avatarPicture.src = res.avatar;
+      user.setUserAvatar(res.avatar);
+      avatarForm.closePopup();
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
       avatarForm.setLoadingText(false);
-      avatarForm.closePopup();
     });
 
   
 }
 
-function handleDeleteFormSubmit(card) {
+function handleDeleteFormSubmit() {
   api.deleteCard(card.getId())
   .then(() => {
     card.deleteCard();
