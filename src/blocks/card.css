@@ -56,6 +56,20 @@
     font-size: 24px;
 }
 
+.card__bottom_like {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__bottom-count {
+    margin-top: 3px;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+}
+
 .card__bottom-button {
     border: none;
     height: 18px;

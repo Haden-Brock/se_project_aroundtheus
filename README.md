@@ -16,11 +16,14 @@ This is the third project of the Web Development program at Practicum. It was cr
 - Form validation with error descriptions
 - Ability to close any popup windows by clicking outside of them or pressing "Esc"
 - Classes and implementation of inheritance, polymorphism, and loose coupling of classes
-- Production and Dev builds. 
+- Production and Dev builds
+- Deployment to live server for persistent user info and cards
+- Like button functionality between users
+- User specific card deletion
 
 ## Plan on improving the project
 
-- Program back end functionality to have persistent image cards/ profile info on page after page refresh.  
+  
 
 ## Link to GitHub Pages
 

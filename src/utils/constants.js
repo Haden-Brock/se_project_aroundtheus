@@ -15,8 +15,13 @@ const editFormElement = editWindow.querySelector(".form");
 const addFormElement = addCardWindow.querySelector(".form");
 const exitButtons = document.querySelectorAll(".modal__container-exit");
 const saveButtonAdd = addFormElement.querySelector("button");
+const avatarWindow = document.querySelector("#editAvatar");
+const avatarInput = avatarWindow.querySelector("#avatar-link-input");
+const avatarPicture = document.querySelector(".profile__image-avatar");
+const avatarButton = document.querySelector("#editAvatarButton");
 const pictureWindow = document.querySelector("#pictureModal");
-const userSelector = {nameSelector: ".profile__info-name", descriptionSelector: ".profile__info-description"};
+const deleteWindow = document.querySelector("#deleteCardModal");
+const userSelector = {nameSelector: ".profile__info-name", descriptionSelector: ".profile__info-description", avatarSelector: ".profile__image-avatar"};
 
 const settings = {
     formSelector: ".form", 
@@ -27,33 +32,6 @@ const settings = {
     errorClass: "form__input-error_active"
 }
 const formList = Array.from(document.querySelectorAll(settings.formSelector));
-
-const cardsList = [
-    {
-        name: "Yosemite Valley",
-        link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-    },
-    {
-        name: "Lake Louise",
-        link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-    },
-    {
-        name: "Bald Mountains",
-        link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-    },
-    {
-        name: "Latemar",
-        link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-    },
-    {
-        name: "Vanoise National Park",
-        link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-    },
-    {
-        name: "Lago di Braies",
-        link: "https://code.s3.yandex.net/web-code/lago.jpg"
-    }
-];
 
 export {cardTemplate, 
     elementsGrid,
@@ -72,8 +50,13 @@ export {cardTemplate,
     addFormElement, 
     exitButtons, 
     saveButtonAdd,
+    avatarWindow,
+    avatarInput,
+    avatarPicture,
+    avatarButton,
     pictureWindow,
+    deleteWindow,
     userSelector,   
     settings, 
     formList, 
-    cardsList};
+};

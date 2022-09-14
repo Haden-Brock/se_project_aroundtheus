@@ -48,6 +48,19 @@
                         </form>
                     </div>
                 </section>
+                <section class="modal" id="editAvatar">
+                    <div class="modal__container">
+                        <button class="modal__container-exit" type="button" id="avatarExit"></button>
+                        <h2 class="modal__container-title">Change profile picture</h2>
+                        <form class="modal__form form" name="avatar" id="avatarSubmit" novalidate>
+                            <fieldset class="form__fieldset">
+                                <input class="form__input" id="avatar-link-input" type="url" required placeholder="Image link">
+                                <span class="avatar-link-input-error form__input-error"></span>
+                            </fieldset>
+                            <button class="form__save" type="submit">Save</button>
+                        </form>
+                    </div>
+                </section>
                 <section class="modal" id="pictureModal">
                     <div class="modal__picture">
                         <button class="modal__container-exit" type="button" id="pictureExit"></button>
@@ -58,15 +71,27 @@
                         <h2 class="modal__picture-text"></h2>
                     </div>
                 </section>
+                <section class="modal" id="deleteCardModal">
+                    <div class="modal__container">
+                        <button class="modal__container-exit" type="button" id="deleteExit"></button>
+                        <h2 class="modal__container-title">Are you sure?</h2>
+                        <form class="modal__form form" name="delete" id="deleteSubmit" novalidate>
+                            <button class="form__save" type="submit">Yes</button>
+                        </form>
+                    </div>
+                </section>
                 <section class="profile">
-                    <img 
-                        src="<%=require('./images/jacques-cousteau.svg')%>"
-                        alt="profile picture"
-                        class="profile__avatar"/>
+                    <div class="profile__image">
+                        <img 
+                            src="<%=require('./images/jacques-cousteau.svg')%>"
+                            alt="profile picture"
+                            class="profile__image-avatar"/>
+                        <button class="profile__image-button" type="button" id="editAvatarButton"></button>
+                    </div>    
                     <div class="profile__info">
-                            <h1 class="profile__info-name">Jacques Cousteau</h1>
+                            <h1 class="profile__info-name"></h1>
                             <button class="profile__edit" type="button" id="editOpen"></button>
-                            <p class="profile__info-description">Explorer</p>
+                            <p class="profile__info-description"></p>
                     </div>
                     <button class="profile__add" type="button" id="addOpen"></button>
                 </section>
@@ -81,7 +106,10 @@
                                     class="card__image"/>
                                 <div class="card__bottom">
                                     <h2 class="card__bottom-text"></h2>
-                                    <button class="card__bottom-button" type="button"></button>
+                                    <div class="card__bottom_like">
+                                        <button class="card__bottom-button" type="button"></button>
+                                        <h3 class="card__bottom-count"></h3>
+                                    </div>
                                 </div>
                             </li>
                         </template>
