@@ -31,7 +31,10 @@ const settings = {
     inputErrorClass: "form__input_type_error", 
     errorClass: "form__input-error_active"
 }
-const formList = Array.from(document.querySelectorAll(settings.formSelector));
+
+const editFormSelector = document.querySelector("#editSubmit");
+const addFormSelector = document.querySelector("#addSubmit");
+const avatarFormSelector = document.querySelector("#avatarSubmit");
 
 export {cardTemplate, 
     elementsGrid,
@@ -58,5 +61,7 @@ export {cardTemplate,
     deleteWindow,
     userSelector,   
     settings, 
-    formList, 
+    editFormSelector, 
+    addFormSelector, 
+    avatarFormSelector
 };

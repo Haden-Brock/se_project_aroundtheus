@@ -21,17 +21,28 @@ import {
   pictureWindow,
   userSelector,
   settings,
-  formList,
   avatarInput,
   avatarPicture,
   avatarWindow,
   avatarButton,  
-  deleteWindow
+  deleteWindow, 
+  editFormSelector, 
+  addFormSelector, 
+  avatarFormSelector
 } from "../utils/constants.js";
 
 let currentUserId = null;
 
 const user = new UserInfo(userSelector);
+
+const editFormValidator = new FormValidator(settings, editFormSelector);
+editFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(settings, addFormSelector);
+addFormValidator.enableValidation();
+
+const avatarFormValidator = new FormValidator(settings, avatarFormSelector);
+avatarFormValidator.enableValidation();
 
 const api = new Api ({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -76,7 +87,7 @@ const renderCard = (cardItem) => {
             deleteForm.closePopup();
           })
           .catch((err) => {
-          console.log(err);
+            console.log(err);
           })
           .finally(() => {
             deleteForm.setLoadingText(false);
@@ -122,28 +133,21 @@ function handleCardClick(card) {
   imagePopup.openPopup(card);
 }
 
-function handleCardDelete() {
-  deleteForm.openPopup(handleDeleteFormSubmit);
-}
-
-
-function addValidation(settings, formElement) {
-  const validationElement = new FormValidator(settings, formElement);
-  validationElement.enableValidation();
-}
-
 function handleModalEdit() {
   const newUser = user.getUserInfo();
   nameInput.value = newUser.name;
   descriptionInput.value = newUser.about;
+  editFormValidator.resetValidation();
   editForm.openPopup();
 }
 
 function handleModalAdd() {
+  addFormValidator.resetValidation();
   addForm.openPopup();
 }
 
 function handleModalAvatar() {
+  avatarFormValidator.resetValidation();
   avatarForm.openPopup();
 }
 
@@ -223,9 +227,5 @@ editButton.addEventListener("click", handleModalEdit);
 addButton.addEventListener("click", handleModalAdd);
 avatarButton.addEventListener("click", handleModalAvatar);
 
-
-formList.forEach((formElement) => {
-  addValidation(settings, formElement);
-});
 
 

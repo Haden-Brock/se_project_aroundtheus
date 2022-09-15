@@ -8,8 +8,7 @@ export default class UserInfo {
     getUserInfo() {
       return {
         name: this._nameContainer.textContent,
-        about: this._descriptionContainer.textContent,
-        avatar: this._avatarContainer.src
+        about: this._descriptionContainer.textContent
       };
     }
   
